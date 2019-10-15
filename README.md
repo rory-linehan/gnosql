@@ -44,7 +44,7 @@ you're on your own.
 
 #### Go client import:
 
-`import "github.com/rory-linehan/gosql/clients/gnosql-client"`
+`import "github.com/jyro-io/gnosql/clients/gnosql-client"`
 
 ## Features
 
