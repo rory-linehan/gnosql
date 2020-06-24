@@ -1,2 +1,7 @@
+Protocol: HTTP
+Address: 0.0.0.0
 Port: 23233
 MemoryLimit: ~
+Persistence: true
+CertFile: self-signed.crt
+KeyFile: some-key.pem

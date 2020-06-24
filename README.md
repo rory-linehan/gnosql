@@ -20,8 +20,3 @@ available.
 
 gnosql will handle any and all connections and concurrent operations as long as
 you have the hardware to support it.
-
-### Security
-
-gnosql does not do SSL natively. If you want SSL (and you should), use `nginx`
-and configure it as a reverse proxy.
