@@ -10,8 +10,7 @@ import (
 )
 
 type conf struct {
-	NativePort  int64  `yaml:"NativePort"`
-	APIPort     int64  `yaml:"APIPort"`
+	Port        int64  `yaml:"Port"`
 	MemoryLimit string `yaml:"MemoryLimit"`
 }
 
@@ -23,40 +22,21 @@ func executeDatabaseOperation() {
 
 }
 
-func handleAPIRequest(conn net.Conn) {
-
+func handleRequest(conn net.Conn) {
+	request, _ := conn.Read()
 }
 
-func handleNativeRequest(conn net.Conn) {
-
-}
-
-func server(mode string, config conf) {
-	if mode == "native" {
-		ln, err := net.Listen("tcp", ":"+string(config.NativePort))
-		if err != nil {
-			go log(err)
-		}
-		for {
-			conn, err := ln.Accept()
-			if err != nil {
-				go log(err)
-			}
-			go handleNativeRequest(conn)
-		}
+func server(config conf) {
+	ln, err := net.Listen("tcp", ":"+string(config.Port))
+	if err != nil {
+		go log(err)
 	}
-	if mode == "api" {
-		ln, err := net.Listen("tcp", ":"+string(config.APIPort))
+	for {
+		conn, err := ln.Accept()
 		if err != nil {
 			go log(err)
 		}
-		for {
-			conn, err := ln.Accept()
-			if err != nil {
-				go log(err)
-			}
-			go handleAPIRequest(conn)
-		}
+		go handleRequest(conn)
 	}
 }
 
@@ -77,6 +57,5 @@ func main() {
 	config := getConfig()
 	spew.Dump(config)
 
-	go server("native", config)
-	go server("api", config)
+	go server(config)
 }
