@@ -12,14 +12,14 @@ import (
 )
 
 type conf struct {
-	Protocol    string `yaml:"Protocol"`
-	Address     string `yaml:"Address"`
-	Port        int64  `yaml:"Port"`
-	MemoryLimit string `yaml:"MemoryLimit"`
-	Persistence bool   `yaml:"Persistence"`
-	CertFile    string `yaml:"CertFile"`
-	KeyFile     string `yaml:"KeyFile"`
-	LogLevel    string `yaml:"LogLevel"`
+	Protocol        string `yaml:"Protocol"`
+	Address         string `yaml:"Address"`
+	Port            int64  `yaml:"Port"`
+	MemoryLimit     string `yaml:"MemoryLimit"`
+	DataPersistence bool   `yaml:"DataPersistence"`
+	CertFile        string `yaml:"CertFile"`
+	KeyFile         string `yaml:"KeyFile"`
+	LogLevel        string `yaml:"LogLevel"`
 }
 
 func executeDatabaseOperation() {
@@ -44,15 +44,16 @@ func server(config conf) {
 
 func getConfig() conf {
 	contextLogger := log.WithFields(log.Fields{"function": "getConfig"})
-	contextLogger.Info("loading config.yaml")
+	contextLogger.Info("loading config")
 	var c conf
 	yamlFile, err := ioutil.ReadFile("etc/config.yaml")
 	if err != nil {
-		//go log(err)
+		contextLogger.Fatal(err.Error())
 	}
+	contextLogger.Info("unmarshaling yaml from config")
 	err = yaml.Unmarshal(yamlFile, &c)
 	if err != nil {
-		//go log(err)
+		contextLogger.Fatal(err.Error())
 	}
 	return c
 }

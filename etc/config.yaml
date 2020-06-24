@@ -1,8 +1,8 @@
 Protocol: HTTP
 Address: 0.0.0.0
-Port: 23233
+Port: 23232
 MemoryLimit: ~
-Persistence: true
+DataPersistence: true
 CertFile: self-signed.crt
 KeyFile: some-key.pem
-LogLevel: WARN
+LogLevel: DEBUG
