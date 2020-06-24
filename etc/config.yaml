@@ -5,3 +5,4 @@ MemoryLimit: ~
 Persistence: true
 CertFile: self-signed.crt
 KeyFile: some-key.pem
+LogLevel: WARN
