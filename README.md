@@ -1,7 +1,6 @@
 # gnosql
 
-gnosql is a dead simple, schema-free, cloud-native database system written
-in Go.
+gnosql is a schema-free, fully HTTP compliant database system written in Go.
 
 ### Overview
 
