@@ -1,6 +1,7 @@
 package gnosql
 
 import (
+	"flag"
 	"github.com/davecgh/go-spew/spew"
 	"github.com/jyro-io/gnosql/internal/config"
 	"github.com/jyro-io/gnosql/internal/server"
@@ -16,11 +17,24 @@ func init() {
 
 func main() {
 	contextLogger := log.WithFields(log.Fields{"function": "main"})
-	c := config.LoadConfig()
+
+	var logLevel string
+	var configFile string
+	flag.StringVar(&logLevel, "log", "INFO", "log level [TRACE,DEBUG,INFO,WARN,ERROR,FATAL,PANIC]")
+	flag.StringVar(&configFile, "config-file", "config.yaml", "config file")
+
+	file, err := os.Open(configFile)
+	if err != nil {
+		contextLogger.Fatal("failed to read config file")
+	}
+	c, err := config.LoadConfig(file)
+	if err != nil {
+		contextLogger.Fatal("failed to load config from given file")
+	}
 	spew.Dump(c)
 
 	contextLogger.Info("setting log output level from config.LogLevel")
-	switch c.LogLevel {
+	switch logLevel {
 	case "TRACE":
 		log.SetLevel(log.TraceLevel)
 	case "DEBUG":

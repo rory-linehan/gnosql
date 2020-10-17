@@ -12,4 +12,4 @@ an HTTP compliant REST API. No more clunky client interfaces or extra
 packages that will break your software.
 
 It's cloud native, designed to work with ephemeral requirements
-as well as it does with reliability.
+as well as it does with reliability constraints.

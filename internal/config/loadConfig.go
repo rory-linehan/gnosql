@@ -3,6 +3,7 @@ package config
 import (
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v3"
+	"io"
 	"io/ioutil"
 )
 
@@ -14,21 +15,22 @@ type Conf struct {
 	DataPersistence bool   `yaml:"dataPersistence"`
 	CertFile        string `yaml:"certFile"`
 	KeyFile         string `yaml:"keyFile"`
-	LogLevel        string `yaml:"logLevel"`
 }
 
-func LoadConfig() Conf {
-	contextLogger := log.WithFields(log.Fields{"function": "getConfig"})
+func LoadConfig(reader io.Reader) (Conf, error) {
+	contextLogger := log.WithFields(log.Fields{"function": "LoadConfig"})
 	contextLogger.Info("loading config")
 	var c Conf
-	yamlFile, err := ioutil.ReadFile("config.yaml")
+	yamlFile, err := ioutil.ReadAll(reader)
 	if err != nil {
-		contextLogger.Fatal("failed to load config.yaml: " + err.Error())
+		contextLogger.Error("failed to load config.yaml: " + err.Error())
+		return Conf{}, err
 	}
 	contextLogger.Info("unmarshaling yaml from config")
 	err = yaml.Unmarshal(yamlFile, &c)
 	if err != nil {
-		contextLogger.Fatal("failed to unmarshal yaml: " + err.Error())
+		contextLogger.Error("failed to unmarshal yaml: " + err.Error())
+		return Conf{}, err
 	}
-	return c
+	return c, nil
 }

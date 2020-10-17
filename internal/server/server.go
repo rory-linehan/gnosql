@@ -12,7 +12,7 @@ func handleRequest(conn net.Conn) {
 }
 
 func Serve(c config.Conf) {
-	contextLogger := log.WithFields(log.Fields{"function": "server"})
+	contextLogger := log.WithFields(log.Fields{"function": "Serve"})
 	switch c.Protocol {
 	case "HTTPS":
 		contextLogger.Info("starting HTTPS server")
