@@ -1,0 +1,9 @@
+protocol: HTTP
+host: 0.0.0.0
+port: 23232
+memoryLimit: ~
+dataPersistence: true
+certFile: self-signed.crt
+keyFile: some-key.pem
+logLevel: DEBUG
+federate: localhost

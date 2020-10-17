@@ -1,8 +1,0 @@
-Protocol: HTTP
-Address: 0.0.0.0
-Port: 23232
-MemoryLimit: ~
-DataPersistence: true
-CertFile: self-signed.crt
-KeyFile: some-key.pem
-LogLevel: DEBUG
