@@ -10,7 +10,7 @@ import (
 type Conf struct {
 	Protocol        string `yaml:"protocol"`
 	Address         string `yaml:"host"`
-	Port            int64  `yaml:"port"`
+	Port            string `yaml:"port"`
 	MemoryLimit     string `yaml:"memoryLimit"`
 	DataPersistence bool   `yaml:"dataPersistence"`
 	CertFile        string `yaml:"certFile"`

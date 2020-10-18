@@ -1,8 +1,7 @@
-package gnosql
+package main
 
 import (
 	"flag"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/jyro-io/gnosql/internal/config"
 	"github.com/jyro-io/gnosql/internal/server"
 	log "github.com/sirupsen/logrus"
@@ -31,7 +30,6 @@ func main() {
 	if err != nil {
 		contextLogger.Fatal("failed to load config from given file")
 	}
-	spew.Dump(c)
 
 	contextLogger.Info("setting log output level from config.LogLevel")
 	switch logLevel {

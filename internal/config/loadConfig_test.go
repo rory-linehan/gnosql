@@ -9,7 +9,7 @@ import (
 func TestLoadConfig(t *testing.T) {
 	_, err := LoadConfig(strings.NewReader(`
 protocol: HTTP
-host: 0.0.0.0
+host: 127.0.0.1
 port: 23232
 memoryLimit: ~
 dataPersistence: true
