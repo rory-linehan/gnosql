@@ -4,6 +4,7 @@ version=$(cat VERSION)
 
 go test -v -coverprofile cover.out ./... && \
 ./test/integration.sh && \
+./test/integration.py && \
 go build -o gnosql cmd/gnosql/main.go && \
 sudo chmod +x gnosql && \
 docker build -t gnosql:${version} . && \
