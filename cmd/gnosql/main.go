@@ -28,10 +28,10 @@ func main() {
 	}
 	c, err := config.LoadConfig(file)
 	if err != nil {
-		contextLogger.Fatal("failed to load config from given file")
+		contextLogger.Fatal("failed to load config from config file")
 	}
 
-	contextLogger.Info("setting log output level from config.LogLevel")
+	contextLogger.Info("setting log output level from --log")
 	switch logLevel {
 	case "TRACE":
 		log.SetLevel(log.TraceLevel)
