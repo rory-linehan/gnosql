@@ -5,6 +5,6 @@ RUN apk add --no-cache git
 WORKDIR /home/gnosql
 USER gnosql
 ADD . .
-RUN go build cmd/gnosql/main.go -o gnosql
+RUN go build -o gnosql cmd/gnosql/main.go
 RUN chmod +x gnosql
 ENTRYPOINT ./gnosql --log INFO

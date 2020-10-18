@@ -13,8 +13,8 @@ host: 127.0.0.1
 port: 23232
 memoryLimit: ~
 dataPersistence: true
-certFile: self-signed.crt
-keyFile: some-key.pem
+certFile: test.crt
+keyFile: test.key
 logLevel: DEBUG
 federate: localhost`))
 	if err != nil {

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
-go build -o gnosql cmd/gnosql/main.go && \
-sudo chmod +x gnosql
+version=$(cat VERSION)
 
-#docker build -t gnosql:latest .
+./test/integration.sh && \
+go build -o gnosql cmd/gnosql/main.go && \
+sudo chmod +x gnosql && \
+docker build -t gnosql:${version} . && \
+docker tag gnosql:${version} gnosql:latest
