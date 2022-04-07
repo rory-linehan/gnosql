@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-./gnosql --config-file config.yaml &
-PID_GNOSQL=$(pidof gnosql)
+./gnosql.bin --config-file config.yaml &
+PID_GNOSQL=$(pidof gnosql.bin)
 
 result=$(curl -s -H "Content-Type: application/json" \
 -d "{\"collection\":\"int_test\",\"documents\":[{\"int_test_field\":\"int_test_value\"}]}" \

@@ -2,3 +2,4 @@
 .venv/
 pkg/
 bin/
+gnosql.bin
