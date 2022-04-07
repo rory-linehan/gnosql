@@ -1,0 +1,6 @@
+mode: set
+github.com/rory-linehan/gnosql/internal/config/loadConfig.go:20.49,25.16 5 1
+github.com/rory-linehan/gnosql/internal/config/loadConfig.go:29.2,31.16 3 1
+github.com/rory-linehan/gnosql/internal/config/loadConfig.go:35.2,35.15 1 1
+github.com/rory-linehan/gnosql/internal/config/loadConfig.go:25.16,28.3 2 1
+github.com/rory-linehan/gnosql/internal/config/loadConfig.go:31.16,34.3 2 1
