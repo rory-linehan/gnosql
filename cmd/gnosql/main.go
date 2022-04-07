@@ -2,8 +2,8 @@ package main
 
 import (
 	"flag"
-	"github.com/jyro-io/gnosql/internal/config"
-	"github.com/jyro-io/gnosql/internal/server"
+	"github.com/rory-linehan/gnosql/internal/config"
+	"github.com/rory-linehan/gnosql/internal/server"
 	log "github.com/sirupsen/logrus"
 	"os"
 )

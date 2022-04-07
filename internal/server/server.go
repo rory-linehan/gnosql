@@ -1,8 +1,8 @@
 package server
 
 import (
-	"github.com/jyro-io/gnosql/internal/config"
-	"github.com/jyro-io/gnosql/internal/database"
+	"github.com/rory-linehan/gnosql/internal/config"
+	"github.com/rory-linehan/gnosql/internal/database"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 )
