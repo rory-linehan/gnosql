@@ -1,4 +1,4 @@
-FROM golang:1.13-alpine
+FROM golang:1.17-alpine
 
 RUN addgroup -S gnosql && adduser -S gnosql -G gnosql
 RUN apk add --no-cache git
